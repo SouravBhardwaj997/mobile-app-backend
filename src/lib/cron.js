@@ -1,6 +1,6 @@
 import cron from "cron";
 import http from "http";
-
+import "dotenv/config";
 const job = new cron.CronJob("*/14 * * * *", () => {
   http
     .get(process.env.API_URL, (res) => {
