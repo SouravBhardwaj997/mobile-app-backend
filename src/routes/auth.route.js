@@ -78,7 +78,7 @@ router.post("/login", async (req, res) => {
     }
 
     //compare password
-    const isPasswordCorrect = await User.comparePassword(password);
+    const isPasswordCorrect = await user.comparePassword(password);
     if (!isPasswordCorrect) {
       return res.status(400).json({ msg: "Invalid credentials" });
     }

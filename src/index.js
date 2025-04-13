@@ -17,7 +17,7 @@ app.use(cors());
 
 //Routes
 app.use("/api/auth", authRoute);
-app.use("/api/auth", bookRoute);
+app.use("/api/books", bookRoute);
 
 app.listen(PORT, () => {
   console.log(`server is running on port ${PORT}`);
