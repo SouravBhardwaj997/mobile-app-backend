@@ -1,4 +1,4 @@
-import cron from "node-cron";
+import cron from "cron";
 import http from "http";
 
 const job = new cron.CronJob("*/14 * * * *", () => {
