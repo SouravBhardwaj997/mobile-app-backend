@@ -4,7 +4,7 @@ import jwt from "jsonwebtoken";
 const router = Router();
 
 const generateToken = (userId) => {
-  return jwt.sign({ userId }, process.env.jWT_SECRET, { expiresIn: "1d" });
+  return jwt.sign({ userId }, process.env.JWT_SECRET, { expiresIn: "1d" });
 };
 
 router.post("/register", async (req, res) => {
