@@ -5,6 +5,19 @@ import Book from "../models/book.model.js";
 
 const router = Router();
 
+router.get("/user", protectRoute, async (req, res) => {
+  try {
+    const books = await Book.find({ user: req.user.id })
+      .sort({ createdAt: -1 })
+      .populate("user", "username profileImage");
+
+    return res.status(200).json(books);
+  } catch (error) {
+    console.log("error in getting user's books", error);
+    return res.status(500).json({ msg: "Internal server error" });
+  }
+});
+
 router.post("/", protectRoute, async (req, res) => {
   try {
     const { title, rating, caption, image } = req.body;
